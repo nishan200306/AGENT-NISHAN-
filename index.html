@@ -94,11 +94,27 @@
 
     /* Header */
     .top{display:flex; align-items:center; gap:16px; margin-top:8px; margin-bottom:18px}
-    .logo-badge{width:74px; height:74px; border-radius:16px; display:grid; place-items:center; background:#ffffff; box-shadow:var(--shadow)}
+    .logo-badge{width:74px; height:74px; border-radius:16px; display:grid; place-items:center; background:transparent;}
     .bot-icon{width:50px; height:50px}
     .brand{display:flex; flex-direction:column; gap:6px}
     .brand h1{font-size:24px; margin:0; font-weight:900; letter-spacing:.6px}
 
+    /* NEW STYLES FOR PROFILE IMAGE */
+    .bot-icon, .bot-icon-lg {
+      object-fit: cover; /* Ensures the image covers the area without stretching */
+    }
+    .splash-logo-wrap .bot-icon-lg {
+      border-radius: 50%; /* Make the splash icon circular */
+      width: 100%; /* Fill the container */
+      height: 100%; /* Fill the container */
+    }
+    .logo-badge .bot-icon {
+      border-radius: 12px; /* Round the corners of the header icon */
+      width: 100%; /* Fill the container */
+      height: 100%; /* Fill the container */
+      box-shadow: var(--shadow);
+    }
+    
     /* Online badge */
     .online{
       position:relative; display:inline-flex; align-items:center; gap:6px; color:#dfffe7;
@@ -191,13 +207,19 @@
     }
     .brand-tag{
       position:relative;
-      display:flex; align-items:center; justify-content:center; min-height:64px; border-radius:14px; padding:10px;
+      display:flex; align-items:center; justify-content:center;
+      min-height: 72px; /* MODIFIED: Increased container height */
+      border-radius:14px; padding:10px;
       background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border:1px solid rgba(255,255,255,.08);
-      text-transform:uppercase; font-weight:900; letter-spacing:.8px; font-size:20px; text-align:center;
       text-decoration:none; color:inherit; cursor:pointer;
     }
-    .brand-tag span{ font-size:1em; line-height:1; font-weight:900; }
+    .brand-tag img {
+      height: 50px; /* MODIFIED: Increased image height */
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
 
     .brand-note{text-align:center; color:#a8b3d9; margin-top:10px; font-size:14px}
     .brand-note-en{text-align:center; color:#cfe4ff; margin-top:4px; font-size:13px; font-weight:800; letter-spacing:.5px}
@@ -261,8 +283,7 @@
     .bank{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:12px; margin-top:12px}
     .bank-head{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px}
     .bank-name{display:flex; align-items:center; gap:8px; font-weight:900; font-size:18px}
-    .bank-logo{width:22px; height:22px; color:#fff; flex:0 0 22px}
-    .bank-logo-lg{width:28px; height:28px; flex:0 0 28px} /* bigger logo for LOLC */
+    .bank-logo{width:32px; height:32px; color:#fff; flex:0 0 32px; object-fit:contain;}
     .copy-all{--btn-rgb:34,197,94; background:linear-gradient(90deg, rgba(var(--btn-rgb), .22), rgba(var(--btn-rgb), .45), rgba(var(--btn-rgb), .22)); background-size:200% 100%; border:1px solid rgba(var(--btn-rgb), .45); color:#fff; border-radius:10px; padding:6px 10px; font-weight:800; cursor:pointer; animation:greenShimmer 2.8s linear infinite, btnGlow 1.8s ease-in-out infinite; font-family:'Montserrat',sans-serif; text-transform:uppercase; letter-spacing:.5px}
     .row{display:grid; grid-template-columns:1.1fr auto 1fr auto; gap:10px; align-items:center; padding:8px 10px; border-radius:10px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); margin-top:6px}
     .label{color:#dfe7ff; font-weight:700}
@@ -355,17 +376,8 @@
 
     <div class="splash-content">
       <div class="ring">
-        <div class="splash-logo-wrap" aria-label="Bot icon">
-          <svg class="bot-icon-lg" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="20" y="34" width="88" height="68" rx="14" fill="#1f57ff"/>
-            <circle cx="48" cy="68" r="10" fill="#ffffff"/>
-            <circle cx="80" cy="68" r="10" fill="#ffffff"/>
-            <rect x="56" y="86" width="16" height="10" rx="3" fill="#ffffff"/>
-            <rect x="58" y="22" width="12" height="14" rx="6" fill="#1f57ff"/>
-            <circle cx="64" cy="20" r="6" fill="#1f57ff"/>
-            <rect x="10" y="58" width="12" height="26" rx="6" fill="#1f57ff"/>
-            <rect x="106" y="58" width="12" height="26" rx="6" fill="#1f57ff"/>
-          </svg>
+        <div class="splash-logo-wrap" aria-label="Agent Nishan Profile">
+          <img src="https://i.postimg.cc/g2FqWTsv/1001086607.jpg" alt="Agent Nishan" class="bot-icon-lg">
         </div>
       </div>
       <div class="splash-title">AGENT NISHAN</div>
@@ -379,16 +391,7 @@
       <!-- Header -->
       <header class="top">
         <div class="logo-badge" aria-hidden="true">
-          <svg class="bot-icon" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <rect x="20" y="34" width="88" height="68" rx="14" fill="#1f57ff"/>
-            <circle cx="48" cy="68" r="10" fill="#ffffff"/>
-            <circle cx="80" cy="68" r="10" fill="#ffffff"/>
-            <rect x="56" y="86" width="16" height="10" rx="3" fill="#ffffff"/>
-            <rect x="58" y="22" width="12" height="14" rx="6" fill="#1f57ff"/>
-            <circle cx="64" cy="20" r="6" fill="#1f57ff"/>
-            <rect x="10" y="58" width="12" height="26" rx="6" fill="#1f57ff"/>
-            <rect x="106" y="58" width="12" height="26" rx="6" fill="#1f57ff"/>
-          </svg>
+          <img src="https://i.postimg.cc/g2FqWTsv/1001086607.jpg" alt="Agent Nishan" class="bot-icon">
         </div>
         <div class="brand">
           <h1>AGENT NISHAN</h1>
@@ -439,7 +442,7 @@
 
           <button id="bank-btn" class="btn btn-bank effect btn-eng" type="button" aria-label="Open bank details">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 2 7v2h2v9a2 2 0 0 0 2 2h4v-6h4v6h4a2 2 0 0 0 2-2V9h2V7l-10-5Z"/></svg>
-            BANK DETAILS
+            BANK
           </button>
 
           <!-- 3 line: Withdrawal Imformation (full width) -->
@@ -461,16 +464,16 @@
         </h3>
         <div class="brand-grid">
           <a class="brand-tag" href="https://chill2win.fun/L?tag=d_3939851m_77801c_&site=3939851&ad=77801" target="_blank" rel="noopener" aria-label="Open 888STARZ">
-            <span class="c-white">888</span><span class="c-red">STARZ</span>
+            <img src="https://i.postimg.cc/P5QqrT0Z/1001086826.png" alt="888STARZ">
           </a>
           <a class="brand-tag" href="https://reffpa.com/L?tag=d_4662170m_97c_&site=4662170&ad=97" target="_blank" rel="noopener" aria-label="Open 1XBET">
-            <span class="c-white">1X</span><span class="c-blue">BET</span>
+            <img src="https://i.postimg.cc/D0GvVTqB/1001086825.png" alt="1XBET">
           </a>
           <a class="brand-tag" href="https://refpa00186.com/L?tag=d_4632574m_64499c_&site=4632574&ad=64499&r=promotions/first-deposit" target="_blank" rel="noopener" aria-label="Open PARIPULSE">
-            <span class="c-red">PARI</span><span class="c-white">PULSE</span>
+            <img src="https://i.postimg.cc/qvPNg17s/1001086838.png" alt="PARIPULSE">
           </a>
           <a class="brand-tag" href="https://refpa3665.com/L?tag=d_4280276m_61553c_&site=4280276&ad=61553" target="_blank" rel="noopener" aria-label="Open MELBET">
-            <span class="c-white">MEL</span><span class="c-yellow">BET</span>
+            <img src="https://i.postimg.cc/XYfbcL84/1001086827.png" alt="MELBET">
           </a>
         </div>
         <div class="brand-note">මුදල් තැම්පත් කිරීම් හා නැවත ලබා ගැනීම්.</div>
@@ -510,11 +513,7 @@
       <section class="bank" id="bank-ipay">
         <div class="bank-head">
           <div class="bank-name">
-            <svg class="bank-logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2 3 7v2h18V7l-9-5Z"/>
-              <path d="M4 9h3v8H4zM10.5 9h3v8h-3zM17 9h3v8h-3z"/>
-              <path d="M3 19h18v2H3z"/>
-            </svg>
+            <img src="https://i.postimg.cc/KvW6PBbC/1001086753.png" alt="I PAY Logo" class="bank-logo">
             I PAY
           </div>
           <button class="copy-all" data-copy-group="ipay">Copy All</button>
@@ -539,11 +538,7 @@
       <section class="bank" id="bank-boc">
         <div class="bank-head">
           <div class="bank-name">
-            <svg class="bank-logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2 3 7v2h18V7l-9-5Z"/>
-              <path d="M4 9h3v8H4zM10.5 9h3v8h-3zM17 9h3v8h-3z"/>
-              <path d="M3 19h18v2H3z"/>
-            </svg>
+            <img src="https://i.postimg.cc/MTbwtT5R/1001086752.png" alt="BOC Logo" class="bank-logo">
             BOC
           </div>
           <button class="copy-all" data-copy-group="boc">Copy All</button>
@@ -558,17 +553,18 @@
           <div class="value" data-group="boc">Sasana rt</div>
           <button class="row-copy" data-copy="Sasana rt" type="button" aria-label="Copy account name"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Z"/></svg> Copy</button>
         </div>
+        <div class="row">
+          <div class="label">Branch</div><div class="arrow">☛</div>
+          <div class="value" data-group="boc">Baduraliya</div>
+          <button class="row-copy" data-copy="Baduraliya" type="button" aria-label="Copy branch"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Z"/></svg> Copy</button>
+        </div>
       </section>
 
       <!-- PEOPLE'S BANK -->
       <section class="bank" id="bank-peoples">
         <div class="bank-head">
           <div class="bank-name">
-            <svg class="bank-logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2 3 7v2h18V7l-9-5Z"/>
-              <path d="M4 9h3v8H4zM10.5 9h3v8h-3zM17 9h3v8h-3z"/>
-              <path d="M3 19h18v2H3z"/>
-            </svg>
+            <img src="https://i.postimg.cc/3J3NMMD3/1001086751.png" alt="People's Bank Logo" class="bank-logo">
             PEOPLE'S BANK
           </div>
           <button class="copy-all" data-copy-group="peoples">Copy All</button>
@@ -584,7 +580,7 @@
           <button class="row-copy" data-copy="Sasana rt" type="button" aria-label="Copy account name"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Z"/></svg> Copy</button>
         </div>
         <div class="row">
-          <div class="label">𝘽𝙧𝙚න්ච්</div><div class="arrow">☛</div>
+          <div class="label">Branch</div><div class="arrow">☛</div>
           <div class="value" data-group="peoples">Matugama</div>
           <button class="row-copy" data-copy="Matugama" type="button" aria-label="Copy branch"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Z"/></svg> Copy</button>
         </div>
@@ -594,11 +590,7 @@
       <section class="bank" id="bank-lolc">
         <div class="bank-head">
           <div class="bank-name">
-            <svg class="bank-logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2 3 7v2h18V7l-9-5Z"/>
-              <path d="M4 9h3v8H4zM10.5 9h3v8h-3zM17 9h3v8h-3z"/>
-              <path d="M3 19h18v2H3z"/>
-            </svg>
+            <img src="https://i.postimg.cc/2yRqLV6v/1001086743.png" alt="LOLC Finance Logo" class="bank-logo">
             LOLC FINANCE
           </div>
           <button class="copy-all" data-copy-group="lolc">Copy All</button>
@@ -614,7 +606,7 @@
           <button class="row-copy" data-copy="Sasana rt" type="button" aria-label="Copy account name"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Z"/></svg> Copy</button>
         </div>
         <div class="row">
-          <div class="label">𝘽𝙧𝙚න්ච්</div><div class="arrow">☛</div>
+          <div class="label">Branch</div><div class="arrow">☛</div>
           <div class="value" data-group="lolc">Baduraliya</div>
           <button class="row-copy" data-copy="Baduraliya" type="button" aria-label="Copy branch"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Z"/></svg> Copy</button>
         </div>
