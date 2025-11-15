@@ -8,6 +8,9 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Preload Splash Image to improve loading speed -->
+  <link rel="preload" href="https://i.postimg.cc/g2FqWTsv/1001086607.jpg" as="image">
 
   <style>
     :root{
@@ -97,21 +100,28 @@
     .logo-badge{width:74px; height:74px; border-radius:16px; display:grid; place-items:center; background:transparent;}
     .bot-icon{width:50px; height:50px}
     .brand{display:flex; flex-direction:column; gap:6px}
-    .brand h1{font-size:24px; margin:0; font-weight:900; letter-spacing:.6px}
+    .brand h1{
+      font-size:24px; margin:0; font-weight:900; letter-spacing:.6px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .verified-icon {
+        height: 24px;
+        width: auto;
+    }
 
     /* NEW STYLES FOR PROFILE IMAGE */
     .bot-icon, .bot-icon-lg {
-      object-fit: cover; /* Ensures the image covers the area without stretching */
+      object-fit: cover;
     }
     .splash-logo-wrap .bot-icon-lg {
-      border-radius: 50%; /* Make the splash icon circular */
-      width: 100%; /* Fill the container */
-      height: 100%; /* Fill the container */
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
     }
     .logo-badge .bot-icon {
-      border-radius: 12px; /* Round the corners of the header icon */
-      width: 100%; /* Fill the container */
-      height: 100%; /* Fill the container */
+      border-radius: 12px;
+      width: 100%;
+      height: 100%;
       box-shadow: var(--shadow);
     }
     
@@ -132,11 +142,18 @@
 
     /* Buttons (with effect) */
     .btn{
-      position:relative; display:flex; align-items:center; gap:12px; width:100%;
+      position:relative; display:flex; align-items:center; justify-content: center; gap:12px; width:100%;
       padding:16px 18px; border-radius:16px; border:1px solid transparent; outline:none;
       text-decoration:none; color:#fff; font-weight:800; letter-spacing:.3px; cursor:pointer; background:rgba(255,255,255,.06);
     }
-    .btn svg{width:22px; height:22px; flex:0 0 22px}
+    .btn svg, .btn .btn-icon-img {
+      width: 35px;  /* UPDATED */
+      height: 35px; /* UPDATED */
+      flex: 0 0 35px; /* UPDATED */
+    }
+    .btn .btn-icon-img {
+      object-fit: contain;
+    }
     .btn + .btn{margin-top:14px}
     .btn.effect{background:linear-gradient(90deg, rgba(var(--btn-rgb), .22), rgba(var(--btn-rgb), .45), rgba(var(--btn-rgb), .22)); background-size:200% 100%; border-color:rgba(var(--btn-rgb), .45); animation:greenShimmer 2.8s linear infinite, btnGlow 1.8s ease-in-out infinite}
 
@@ -154,7 +171,7 @@
       line-height: 1.1;
     }
 
-    /* Keep BANK DETAILS in one line */
+    /* Keep BANK in one line */
     #bank-btn{ white-space: nowrap; }
 
     /* Service title */
@@ -208,14 +225,15 @@
     .brand-tag{
       position:relative;
       display:flex; align-items:center; justify-content:center;
-      min-height: 72px; /* MODIFIED: Increased container height */
-      border-radius:14px; padding:10px;
+      min-height: 64px;
+      border-radius:14px; 
+      padding: 10px;
       background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border:1px solid rgba(255,255,255,.08);
       text-decoration:none; color:inherit; cursor:pointer;
     }
     .brand-tag img {
-      height: 50px; /* MODIFIED: Increased image height */
+      height: 40px;
       width: auto;
       max-width: 100%;
       object-fit: contain;
@@ -324,6 +342,12 @@
       text-align:center; font-weight:900; letter-spacing:.8px; text-transform:uppercase;
       font-size:18px; margin-bottom:8px;
     }
+    .addr-brand img {
+      height: 36px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+    }
     .addr-row{
       display:grid; grid-template-columns:auto 16px 1fr; gap:8px; align-items:center;
       background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);
@@ -394,7 +418,10 @@
           <img src="https://i.postimg.cc/g2FqWTsv/1001086607.jpg" alt="Agent Nishan" class="bot-icon">
         </div>
         <div class="brand">
-          <h1>AGENT NISHAN</h1>
+          <h1>
+            AGENT NISHAN 
+            <img src="https://i.postimg.cc/j2MwMNrW/1001086957.png" alt="Verified Badge" class="verified-icon">
+          </h1>
           <span class="online" aria-live="polite" aria-label="Users online right now">
             <span class="dot"></span>
             Online
@@ -423,31 +450,29 @@
         <div class="actions-grid">
           <!-- 1 line: WhatsApp | Call -->
           <a class="btn btn-whatsapp effect btn-eng" href="https://wa.me/qr/RES23KVH34XOG1" target="_blank" rel="noopener" aria-label="Open WhatsApp chat">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.8 11.8 0 0 0 12.05 0C5.6 0 .34 5.26.34 11.72c0 2.07.54 4.09 1.57 5.88L0 24l6.6-1.88a11.54 11.54 0 0 0 5.45 1.39h.01c6.45 0 11.71-5.26 11.71-11.71 0-3.13-1.22-6.07-3.25-8.32ZM12.06 21.3h-.01c-1.76 0-3.49-.47-5-1.37l-.36-.21-3.92 1.12 1.05-3.82-.23-.39a9.86 9.86 0 0 1-1.5-5.31C2.09 6.2 6.28 2 11.73 2c2.63 0 5.11 1.03 6.97 2.9a9.83 9.83 0 0 1 2.88 6.96c0 5.45-4.45 9.44-9.52 9.44Zm5.52-7.12c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.96-.96 1.15-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.47 .13-.62.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.68-1.64-.93-2.25-.24-.57-.49-.49-.68-.5l-.58-.01c-.2 0-.52 .07-.8 .38-.28 .3-1.06 1.03-1.06 2.52 0 1.48 1.09 2.92 1.25 3.12.15 .2 2.14 3.27 5.2 4.48.73 .32 1.3 .5 1.74 .64.73 .23 1.4 .2 1.93 .12.59 -.09 1.77 -.72 2.02 -1.41.25 -.7.25 -1.31.18 -1.44 -.07 -.13 -.26 -.2 -.56 -.35Z"/></svg>
+            <img src="https://i.postimg.cc/44z59xjn/1001087587.png" alt="WhatsApp" class="btn-icon-img">
             WHATSAPP
           </a>
 
           <a class="btn btn-call effect btn-eng" href="tel:0781519931" aria-label="Call 0781519931">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 6.75c0-1.243 1.007-2.25 2.25-2.25h2.598c.86 0 1.611.548 1.87 1.368l.6 1.8c.2.61.045 1.284-.41 1.74L8.1 10.9a11.25 11.25 0 0 0 5 5l1.293-1.002c.456-.355 1.129-.61 1.74-.41l1.8.6c.82.259 1.368 1.01 1.368 1.87V19.5c0 1.243-1.007 2.25-2.25 2.25h-.75C9.354 21.75 2.25 14.646 2.25 6.75z"/>
-            </svg>
+            <img src="https://i.postimg.cc/SQ76KtYw/1001087599.png" alt="Call" class="btn-icon-img">
             CALL
           </a>
 
-          <!-- 2 line: Email | Bank Details -->
+          <!-- 2 line: Email | Bank -->
           <a class="btn btn-email effect btn-eng" href="mailto:nishanmessagepvt@gmail.com?subject=Hello%20AGENT%20NISHAN&body=Hi%20Nishan%2C" target="_blank" rel="noopener" aria-label="Send email">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+            <img src="https://i.postimg.cc/3xbCT40q/1001087597.png" alt="Email" class="btn-icon-img">
             EMAIL
           </a>
 
           <button id="bank-btn" class="btn btn-bank effect btn-eng" type="button" aria-label="Open bank details">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 2 7v2h2v9a2 2 0 0 0 2 2h4v-6h4v6h4a2 2 0 0 0 2-2V9h2V7l-10-5Z"/></svg>
+            <img src="https://i.postimg.cc/wTwDXy28/1001087619.png" alt="Bank" class="btn-icon-img">
             BANK
           </button>
 
           <!-- 3 line: Withdrawal Imformation (full width) -->
           <button id="withdrawal-btn" class="btn btn-bank effect btn-eng span-2" type="button" aria-label="Open withdrawal info">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></svg>
+            <img src="https://i.postimg.cc/qR28y1bX/1001087598.png" alt="Withdrawal" class="btn-icon-img">
             WITHDRAWAL IMFORMATION
           </button>
 
@@ -464,16 +489,16 @@
         </h3>
         <div class="brand-grid">
           <a class="brand-tag" href="https://chill2win.fun/L?tag=d_3939851m_77801c_&site=3939851&ad=77801" target="_blank" rel="noopener" aria-label="Open 888STARZ">
-            <img src="https://i.postimg.cc/P5QqrT0Z/1001086826.png" alt="888STARZ">
+            <img src="https://i.postimg.cc/s1FLMBv0/1001086974.png" alt="888STARZ">
           </a>
           <a class="brand-tag" href="https://reffpa.com/L?tag=d_4662170m_97c_&site=4662170&ad=97" target="_blank" rel="noopener" aria-label="Open 1XBET">
-            <img src="https://i.postimg.cc/D0GvVTqB/1001086825.png" alt="1XBET">
+            <img src="https://i.postimg.cc/pXJNmZJw/1001086972.png" alt="1XBET">
           </a>
           <a class="brand-tag" href="https://refpa00186.com/L?tag=d_4632574m_64499c_&site=4632574&ad=64499&r=promotions/first-deposit" target="_blank" rel="noopener" aria-label="Open PARIPULSE">
-            <img src="https://i.postimg.cc/qvPNg17s/1001086838.png" alt="PARIPULSE">
+            <img src="https://i.postimg.cc/TYR74Xn7/1001086979.png" alt="PARIPULSE">
           </a>
           <a class="brand-tag" href="https://refpa3665.com/L?tag=d_4280276m_61553c_&site=4280276&ad=61553" target="_blank" rel="noopener" aria-label="Open MELBET">
-            <img src="https://i.postimg.cc/XYfbcL84/1001086827.png" alt="MELBET">
+            <img src="https://i.postimg.cc/wBtbQcLk/1001086973.png" alt="MELBET">
           </a>
         </div>
         <div class="brand-note">මුදල් තැම්පත් කිරීම් හා නැවත ලබා ගැනීම්.</div>
@@ -590,7 +615,7 @@
       <section class="bank" id="bank-lolc">
         <div class="bank-head">
           <div class="bank-name">
-            <img src="https://i.postimg.cc/2yRqLV6v/1001086743.png" alt="LOLC Finance Logo" class="bank-logo">
+            <img src="https://i.postimg.cc/XqrfznQp/1001087518.png" alt="LOLC Finance Logo" class="bank-logo">
             LOLC FINANCE
           </div>
           <button class="copy-all" data-copy-group="lolc">Copy All</button>
@@ -630,28 +655,28 @@
       <div class="addr-grid">
         <!-- 1XBET -->
         <div class="addr-block">
-          <div class="addr-brand"><span class="c-white">1X</span><span class="c-blue">BET</span></div>
+          <div class="addr-brand"><img src="https://i.postimg.cc/pXJNmZJw/1001086972.png" alt="1XBET"></div>
           <div class="addr-row"><span class="label">CITY</span><span class="arrow">☛</span><span class="value">BADURALIYA</span></div>
           <div class="addr-row"><span class="label">STREET</span><span class="arrow">☛</span><span class="value">NISHAN SERVICE</span></div>
         </div>
 
         <!-- PARIPULSE -->
         <div class="addr-block">
-          <div class="addr-brand"><span class="c-red">PARI</span><span class="c-white">PULSE</span></div>
+          <div class="addr-brand"><img src="https://i.postimg.cc/TYR74Xn7/1001086979.png" alt="PARIPULSE"></div>
           <div class="addr-row"><span class="label">CITY</span><span class="arrow">☛</span><span class="value">HORANA</span></div>
           <div class="addr-row"><span class="label">STREET</span><span class="arrow">☛</span><span class="value">NISHAN SERVICE</span></div>
         </div>
 
         <!-- 888STARZ -->
         <div class="addr-block">
-          <div class="addr-brand"><span class="c-white">888</span><span class="c-red">STARZ</span></div>
+          <div class="addr-brand"><img src="https://i.postimg.cc/s1FLMBv0/1001086974.png" alt="888STARZ"></div>
           <div class="addr-row"><span class="label">CITY</span><span class="arrow">☛</span><span class="value">BADURALIYA</span></div>
           <div class="addr-row"><span class="label">STREET</span><span class="arrow">☛</span><span class="value">NISHAN SERVICE</span></div>
         </div>
 
         <!-- MELBET -->
         <div class="addr-block">
-          <div class="addr-brand"><span class="c-white">MEL</span><span class="c-yellow">BET</span></div>
+          <div class="addr-brand"><img src="https://i.postimg.cc/wBtbQcLk/1001086973.png" alt="MELBET"></div>
           <div class="addr-row"><span class="label">CITY</span><span class="arrow">☛</span><span class="value">BADURALIYA</span></div>
           <div class="addr-row"><span class="label">STREET</span><span class="arrow">☛</span><span class="value">NISHAN SERVICE</span></div>
         </div>
